@@ -14,9 +14,9 @@
         <a href="index.html#products">Products</a>
         <a href="index.html#contact">Contact:+254117773038
         <button id="cart-toggle" class="cart-btn">cart (<span id="cart-count">0</span>)</button>
-      </nav>
-    </div>
-  </header>
+      
+    
+  
 
   <main class="container section" id="product-page">
     <!-- Content populated by JS using ?id=productId in URL -->
