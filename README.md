@@ -12,7 +12,7 @@
       <a class="logo" href="index.html">TOPKI</a>
       <nav class="main-nav">
         <a href="index.html#products">Products</a>
-        <a href="index.html#contact">Contact:+254117773038
+        <a href="index.html#contact">Contact:+254110405353
         <button id="cart-toggle" class="cart-btn">cart (<span id="cart-count">0</span>)</button>
       
     
