@@ -12,8 +12,8 @@
       <a class="logo" href="index.html">TOPKI</a>
       <nav class="main-nav">
         <a href="index.html#products">Products</a>
-        <a href="index.html#contact">Contact</+254117773038>
-        <button id="0117773038-toggle" class="0117773038-btn">0117773038 (<span id="0117773038-count">0</span>)</button>
+        <a href="index.html#contact">Contact:+254117773038
+        <button id="cart-toggle" class="cart-btn">cart (<span id="cart-count">0</span>)</button>
       </nav>
     </div>
   </header>
