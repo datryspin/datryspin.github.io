@@ -76,4 +76,10 @@
       });
     })();
   </script>
+  <!-- Adding a call-to-action -->
+<section id="+254110405353">
+  <h2>Want to collaborate?</h2>
+  <p>Feel free to reach out or connect on social media!</p>
+  <a href="mailto:datryspin.github.com" class="button">Get In Touch</a>
+</section>
 
