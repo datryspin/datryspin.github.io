@@ -76,10 +76,7 @@
       });
     })();
   </script>
-;
-}
 
-}
   <!-- Adding a call-to-action -->
 <section id="+254110405353">
   <h2>Want to collaborate?</h2>
