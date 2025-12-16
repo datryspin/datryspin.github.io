@@ -78,18 +78,7 @@
   </script>
 ;
 }
-.button:hover {
-  background-color: #0056b3;
-}
 
-/* Fade-in Animation */
-.fade-in {
-  opacity: 0;
-  animation: fadeIn ease-in 1s forwards;
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
 }
   <!-- Adding a call-to-action -->
 <section id="+254110405353">
