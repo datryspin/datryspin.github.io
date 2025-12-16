@@ -76,6 +76,28 @@
       });
     })();
   </script>
+  /* Stylish Button */
+.button {
+  background-color: #007BFF;
+  color: black;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.button:hover {
+  background-color: #0056b3;
+}
+
+/* Fade-in Animation */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn ease-in 1s forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
   <!-- Adding a call-to-action -->
 <section id="+254110405353">
   <h2>Want to collaborate?</h2>
