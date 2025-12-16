@@ -76,14 +76,7 @@
       });
     })();
   </script>
-  /* Stylish Button */
-.button {
-  background-color: #007BFF;
-  color: black;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+;
 }
 .button:hover {
   background-color: #0056b3;
