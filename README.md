@@ -83,4 +83,90 @@
   <p>Feel free to reach out or connect on social media!</p>
   <a href="mailto:datryspin.github.com" class="button">Get In Touch</a>
 </section>
+// Simple gallery + lightbox. Put your image filenames below.
+// Add your images to assets/images/ (example: assets/images/photo1.jpg)
 
+const IMAGES = [
+  {src: 'assets/images/photo1.jpg', caption: 'Photo 1 — A beautiful scene'},
+  {src: 'assets/images/photo2.jpg', caption: 'Photo 2 — Another view'},
+  {src: 'assets/images/photo3.jpg', caption: 'Photo 3 — City lights'},
+  {src: 'assets/images/photo4.jpg', caption: 'Photo 4 — Sunrise'},
+  {src: 'assets/images/photo5.jpg', caption: 'Photo 5 — Mountains'},
+  {src: 'assets/images/photo6.jpg', caption: 'Photo 6 — Closeup'},
+  // Add more images here...
+];
+
+// Render gallery
+const galleryEl = document.getElementById('gallery');
+IMAGES.forEach((img, i) => {
+  const card = document.createElement('button');
+  card.className = 'card';
+  card.setAttribute('aria-label', img.caption || `Image ${i+1}`);
+  card.dataset.index = i;
+  card.innerHTML = `
+    <img loading="lazy" src="${img.src}" alt="${img.caption || 'Photo'}">
+    <div class="meta">
+      <div class="caption">${img.caption || ''}</div>
+      <div class="small">${i+1}/${IMAGES.length}</div>
+    </div>
+  `;
+  card.addEventListener('click', () => openLightbox(i));
+  galleryEl.appendChild(card);
+});
+
+// Lightbox functionality
+const lb = document.getElementById('lightbox');
+const lbImage = document.getElementById('lb-image');
+const lbCaption = document.getElementById('lb-caption');
+let current = 0;
+
+function openLightbox(index){
+  current = index;
+  lbImage.src = IMAGES[current].src;
+  lbImage.alt = IMAGES[current].caption || '';
+  lbCaption.textContent = IMAGES[current].caption || '';
+  lb.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  // preload neighbors
+  preload(current + 1);
+  preload(current - 1);
+}
+
+function closeLightbox(){
+  lb.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  lbImage.src = '';
+}
+
+function showNext(delta){
+  current = (current + delta + IMAGES.length) % IMAGES.length;
+  lbImage.src = IMAGES[current].src;
+  lbImage.alt = IMAGES[current].caption || '';
+  lbCaption.textContent = IMAGES[current].caption || '';
+  preload(current + 1);
+}
+
+function preload(index){
+  if(index < 0 || index >= IMAGES.length) return;
+  const img = new Image();
+  img.src = IMAGES[index].src;
+}
+
+// Controls
+document.getElementById('lb-close').addEventListener('click', closeLightbox);
+document.getElementById('lb-next').addEventListener('click', () => showNext(1));
+document.getElementById('lb-prev').addEventListener('click', () => showNext(-1));
+
+// Close on overlay click (but not on image)
+lb.addEventListener('click', (e) => {
+  if (e.target === lb) closeLightbox();
+});
+
+// Keyboard
+document.addEventListener('keydown', (e) => {
+  if (lb.getAttribute('aria-hidden') === 'false') {
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') showNext(1);
+    if (e.key === 'ArrowLeft') showNext(-1);
+  }
+});
